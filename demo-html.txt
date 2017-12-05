@@ -1,0 +1,14 @@
+<div id="onlineCompanions">Loading</div>
+
+<!--JS LIBRARIES-->
+
+	<!-- DATATABLES -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.11/js/jquery.dataTables.min.js"></script>
+
+
+	<!-- TableTop -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.4.3/tabletop.min.js"></script>
+
+<script src="https://www.bc.edu/content/dam/bc1/schools/law/js/library/companions/tabletop-feed-companions.js" type="text/javascript"></script>
+
+<link rel="stylesheet" type="text/css" href="https://www.bc.edu/content/dam/bc1/schools/law/js/library/companions/companions.css">

@@ -1,0 +1,219 @@
+/*changes for printing*/
+@media print {
+	table.dataTable .emailCol.col {display:none;}
+	table.dataTable .websiteCol.col {display:none;}
+}
+/*end print changes*/
+
+/*changes for IE*/
+input, select {
+	height:30px;
+}
+/*end IE changes*/
+
+/*changes for Firefox*/
+input, select {
+	border-color: #A9A9A9;
+}
+/*end Firefox changes*/
+
+/*sorting styles*/
+table.dataTable thead .sorting {
+    background-image: url("https://cdn.datatables.net/1.10.16/images/sort_both.png");
+}
+table.dataTable thead .sorting_asc {
+    background-image: url("https://cdn.datatables.net/1.10.16/images/sort_asc.png");
+}
+table.dataTable thead .sorting_desc {
+    background-image: url("https://cdn.datatables.net/1.10.16/images/sort_desc.png");
+}
+table.dataTable thead th.col, table.dataTable tbody td.col {
+    padding: 10px 18px;
+    border: 1px solid;
+	border-color: #d3d3d3;
+}
+
+table.dataTable thead{
+	border-top: 1px solid;
+	border-color: #d3d3d3;
+}
+
+table.dataTable{
+	display:block; /*for scrolling*/
+}
+
+table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTable thead .sorting_desc, table.dataTable thead .sorting_asc_disabled, table.dataTable thead .sorting_desc_disabled {
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+/*end sorting*/
+
+/*icomoon icons*/
+td.emailCol a:before {
+	content: "\e620";
+    font-size: 18px;
+    font-family: 'icomoon';
+	margin-right:5px;
+}
+td.websiteCol a:before {
+	content: "\f08e";
+    font-size: 18px;
+    font-family: 'icomoon';
+	margin-right:5px;
+}
+/*end icomoon*/
+
+/*button positioning*/
+.prevPage.btn.btn-autofill {
+	margin-left: 20px;
+	margin-bottom: 10px;
+}
+.nextPage.btn.btn-autofill {
+	margin-left: 15px;
+	margin-bottom: 10px;
+}
+
+.showAll {
+	float:left;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+/*end button positioning*/
+
+/*input/select box styling*/
+.dataTables_filter input.searchAllInput{
+	margin-left:5px;
+	text-indent: 5px;
+	color:#555;
+	font-weight: normal;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #A9A9A9;
+	width:75%;
+}
+
+.dataTables_filter input.searchAllInput:focus, .dataTables_filter select.wordCountSelect:focus{
+	border-style: solid;
+	border-width: 1px;
+	border-color: #A9A9A9; 
+}
+
+.dataTables_filter input.searchAllInput::placeholder{
+	color: #8e8e8e;
+}
+
+/*end input/select styling*/
+
+/*drop-down styles*/
+select:focus {
+  
+}
+
+.dataTables_filter select.wordCountSelect {
+	margin-left:5px;
+	color:#555;
+	font-weight: normal;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #A9A9A9;
+	width:50%;
+}
+
+.dataTables_filter select.wordCountSelect.defaultOption{
+	color: #8e8e8e;
+}
+
+.dataTables_filter select.wordCountSelect.nonDefaultOption{
+	color: #555;
+}
+
+.dataTables_filter select.wordCountSelect option{
+	color: #555;
+}
+/*end drop-down styles*/
+
+
+/*label widths (labels wrap inputs, following datatables default)*/
+.dataTables_filter label.wordCountLabel {
+	width:30%;
+}
+
+.dataTables_filter label.searchAllLabel {
+	width:50%;
+}
+/*end label widths*/
+
+/*styles for small screens*/
+@media only screen and (max-width: 950px) {
+	.dataTables_filter label {display:block;
+	}
+	.dataTables_filter label.wordCountLabel {width:100%;
+	}
+	.dataTables_filter select.wordCountSelect {width:300px;
+	}
+	.dataTables_filter label.searchAllLabel {width:100%;
+	}
+	.dataTables_filter input.searchAllInput {width:341px;
+	}
+	table.dataTable{
+		overflow-x:scroll;
+	}
+	/*Google form*/
+	.inputDiv{
+		width: 420px;
+	}
+	.formRow label, .formRow input{
+		display:block;
+	}
+	.formRow label{
+		margin-top:20px;
+	}
+	.inputDiv{
+		height:770px;
+	}
+	.submitInput.btn{
+		margin-right: 155px;
+		margin-top: 20px;
+	}
+	.dataTables_info{
+		clear: both;
+	}
+	.prevPage.btn.btn-autofill {
+		margin-left: 10px;
+		margin-bottom: 10px;
+	}
+	.nextPage.btn.btn-autofill {
+		margin-left: 10px;
+		margin-bottom: 10px;
+	}
+}
+/*end small screen styles*/
+
+.dataTables_filter{
+	width:100%; /*set search/filter div width to 100%*/
+}
+
+/*styles borrowed from past-exams*/
+.table-striped > tbody > tr:nth-child(even) > td, .table-striped th {
+	background-color:#fff;
+	color:#555;
+}
+.table-striped > tbody > tr:nth-child(odd) > td {
+	color:#555;
+}
+
+.dataTables_filter {
+	float:left;
+	margin-bottom:10px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.dataTables_info {
+	float:left;
+	margin-bottom:10px;
+	font-weight:bold;
+	margin-left:10px;
+}
+/*end past-exams styles*/
