@@ -18,14 +18,16 @@ input, select {
 /*end Firefox changes*/
 
 /*sorting styles*/
-table.dataTable thead .sorting {
+table.dataTable thead th.col.sorting {
     background-image: url("https://cdn.datatables.net/1.10.16/images/sort_both.png");
 }
-table.dataTable thead .sorting_asc {
+table.dataTable thead th.col.sorting_asc {
     background-image: url("https://cdn.datatables.net/1.10.16/images/sort_asc.png");
+	border-bottom: 3px solid #A9A9A9;
 }
-table.dataTable thead .sorting_desc {
+table.dataTable thead th.col.sorting_desc {
     background-image: url("https://cdn.datatables.net/1.10.16/images/sort_desc.png");
+	border-bottom: 3px solid #A9A9A9;
 }
 table.dataTable thead th.col, table.dataTable tbody td.col {
     padding: 10px 18px;
@@ -33,10 +35,28 @@ table.dataTable thead th.col, table.dataTable tbody td.col {
 	border-color: #d3d3d3;
 }
 
-table.dataTable thead{
+table.dataTable thead tr th.col{
+	height: 70px;
+}
+
+table.dataTable{
 	border-top: 1px solid;
 	border-color: #d3d3d3;
 }
+
+/*for clarity TB 12-13-17*/
+table.dataTable thead th.col:hover{
+	box-shadow: 10px 10px 50px 5px #E8E8EE inset;
+	padding-top: 0;
+	padding-bottom: 0;
+	vertical-align: middle;
+	white-space: pre-wrap;
+}
+table.dataTable thead th.col:hover::before{
+	content: "Sort by \A";
+	font-size: 75%;
+}
+/*End TB 12-13-17 changes*/
 
 table.dataTable{
 	display:block; /*for scrolling*/

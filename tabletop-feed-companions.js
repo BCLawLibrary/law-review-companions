@@ -123,7 +123,7 @@ $(document).ready(function() {
 			"data": data,
 			"columns": columns,
 			"order": [
-				[1, "asc"]
+				[2, "asc"]
 			], //order on rank
 			"pageLength": 10,
 			"lengthChange": false,
