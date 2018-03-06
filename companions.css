@@ -17,6 +17,10 @@ input, select {
 }
 /*end Firefox changes*/
 
+#pagecontent #onlineCompanions .btn.btn-default, #pagecontent #onlineCompanions .btn {
+	width:auto;
+}
+
 /*sorting styles*/
 table.dataTable thead th.col.sorting {
     background-image: url("https://cdn.datatables.net/1.10.16/images/sort_both.png");
