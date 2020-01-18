@@ -17,9 +17,11 @@ input, select {
 }
 /*end Firefox changes*/
 
+/*restore original button size after global BC change*/
 #pagecontent #onlineCompanions .btn.btn-default, #pagecontent #onlineCompanions .btn {
 	width:auto;
 }
+/*end restore original button size after global BC change*/
 
 /*sorting styles*/
 table.dataTable thead th.col.sorting {
