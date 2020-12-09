@@ -179,7 +179,8 @@ $(document).ready(function() {
 				}
       },
         'ajax' : {
-      url:'https://sheets.googleapis.com/v4/spreadsheets/1bMi2KGbEKPz_mx6o-74wVBdalhAi93UEMzTl6DLzcjg/values/A:I?key=AIzaSyD8Y28YJpVhE4XlVlOoA74Ws47YdPz5nGA',
+			url:'https://sheets.googleapis.com/v4/spreadsheets/1bMi2KGbEKPz_mx6o-74wVBdalhAi93UEMzTl6DLzcjg/values/A:I?key=AIzaSyD8Y28YJpVhE4XlVlOoA74Ws47YdPz5nGA',
+			cache: true,
       'dataSrc': function(json) {
         var myData = json['values']; //spreadsheet data lives in an array with the name values
         //rewrite data to an object with key-value pairs. This is also a chance to rename or ignore columns
