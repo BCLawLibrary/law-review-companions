@@ -12,13 +12,13 @@ var columns = [
 {
 	"data": "title",
 	"title": "Companion Title",
-	"width": "25%",
+	"width": "22.5%",
 	"className": "titleCol col"
 },
 {
 	"data": "parentJournal",
 	"title": "Parent Journal Title",
-	"width": "25%",
+	"width": "20%",
 	"className": "journalCol col"
 },
 {
@@ -38,6 +38,12 @@ var columns = [
 	"title": "Word Max",
 	"width": "7.5%",
 	"className": "maxCol col"
+},
+{
+	"data": "studentsAccepted",
+	"title": "Student Work Accepted",
+	"width": "10%",
+	"className": "studentCol col"
 },
 {
 	"data": "contactEmail",
@@ -70,7 +76,7 @@ var columns = [
 {
 	"data": "submissionMethod",
 	"title": "Submission Method",
-	"width": "12.5%",
+	"width": "10%",
 	"className": "methodCol col"
 }
 ];
@@ -179,7 +185,7 @@ $(document).ready(function() {
 				}
       },
         'ajax' : {
-			url:'https://sheets.googleapis.com/v4/spreadsheets/1bMi2KGbEKPz_mx6o-74wVBdalhAi93UEMzTl6DLzcjg/values/A:I?key=AIzaSyD8Y28YJpVhE4XlVlOoA74Ws47YdPz5nGA',
+			url:'https://sheets.googleapis.com/v4/spreadsheets/1bMi2KGbEKPz_mx6o-74wVBdalhAi93UEMzTl6DLzcjg/values/A:J?key=AIzaSyD8Y28YJpVhE4XlVlOoA74Ws47YdPz5nGA',
 			cache: true,
       'dataSrc': function(json) {
         var myData = json['values']; //spreadsheet data lives in an array with the name values
@@ -188,13 +194,14 @@ $(document).ready(function() {
             var myObject = {
               title:n[0],
               parentJournal:n[1],
-              wordCountMinimum:n[2],
-              wordCountMaximum:n[3],
-              wlParentJournalRanking:n[4],
-              wlOnlineCompanionRanking:n[5],
-              contactEmail:n[6],
-              submissionMethod:n[7],
-              url:n[8]
+			  studentsAccepted:n[2],
+              wordCountMinimum:n[3],
+              wordCountMaximum:n[4],
+              wlParentJournalRanking:n[5],
+              wlOnlineCompanionRanking:n[6],
+              contactEmail:n[7],
+              submissionMethod:n[8],
+              url:n[9]
             };
             return myObject;
         });
