@@ -25,6 +25,13 @@ var columns = [
 	"data": "wlParentJournalRanking",
 	"title": "W&L Rank",
 	"width":"7.5%",
+	render: function(data,type,row) {
+		if ((data == "Not Found") || (data == "NR")) {
+			return 401;
+		} else {
+			return data;
+		}
+	},
 	"className": "rankCol col"
 },
 {
