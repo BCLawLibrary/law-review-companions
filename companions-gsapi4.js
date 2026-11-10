@@ -1,8 +1,23 @@
 //Edit 'key' and 'columns' to connect your spreadsheet
 
-//enter google sheets key here
+async function fetchCSVData(url) {
+  /* Takes Google Sheets URL and returns an object.
+     Object.data is an array of objects, 
+     in which each object is a line on the spreadsheet. */
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error("Failed to fetch CSV");
+    return Papa.parse(await response.text(), { header: true });
+  } catch (error) {
+    console.error(error);
+	console.log("Error fetching CSV data. Please check the URL or your internet connection.");
+    return { data: [] }; // Return empty object in case of error
+  }
+}
+
+//enter google sheets URL here
 var key =
-  "https://docs.google.com/spreadsheets/d/1bMi2KGbEKPz_mx6o-74wVBdalhAi93UEMzTl6DLzcjg/pubhtml?gid=0&single=true";
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vQkOs_I-K3ZUbS-GhyDLVRVqeOkFdUwucaAGb-rutL6Sg-hTznEYJXOQkPX7S5JqB1T5YJPm8hvk8JX/pub?gid=376816178&single=true&output=csv";
 
 //"data" refers to the column name with no spaces and no capitals
 //punctuation or numbers in your column name
@@ -164,7 +179,25 @@ $.fn.dataTable.ext.search.push(
 
 $(document).ready(function() {
 
-
+	async function main(key) {
+		
+		// load Google Sheet data
+		const rawData = await fetchCSVData(key);
+		myData = rawData.data.map(function(n,i) {
+			var myObject = {
+				title:n['Title'],
+				parentJournal:n['Parent Journal'],
+				studentsAccepted:n['Student Submissions Accepted'],
+				wordCountMinimum:n['Word Count Minimum'],
+				wordCountMaximum:n['Word Count Maximum'],
+				wlParentJournalRanking:n['W & L Parent Journal Ranking'],
+				wlOnlineCompanionRanking:n['W & L Online Companion Ranking'],
+				contactEmail:n['Contact Email'],
+				submissionMethod:n['Submission Method'],
+				url:n['URL']
+			}
+			return myObject;
+		});
 
 		//select main div and put a table there
 		//use bootstrap css to customize table style: http://getbootstrap.com/css/#tables
@@ -190,41 +223,17 @@ $(document).ready(function() {
 					"next":"<span class='nextPageSpan'><button class='nextPage btn btn-autofill'>Next ></button></span>",
 					"previous":"<span class='prevPageSpan'><button class='prevPage btn btn-autofill'>< Previous</button></span>"
 				}
-      },
-        'ajax' : {
-			url:'https://sheets.googleapis.com/v4/spreadsheets/1bMi2KGbEKPz_mx6o-74wVBdalhAi93UEMzTl6DLzcjg/values/A:J?key=AIzaSyD8Y28YJpVhE4XlVlOoA74Ws47YdPz5nGA',
-			cache: true,
-      'dataSrc': function(json) {
-        var myData = json['values']; //spreadsheet data lives in an array with the name values
-        //rewrite data to an object with key-value pairs. This is also a chance to rename or ignore columns
-        myData= myData.map(function( n, i ) {
-            var myObject = {
-              title:n[0],
-              parentJournal:n[1],
-			  studentsAccepted:n[2],
-              wordCountMinimum:n[3],
-              wordCountMaximum:n[4],
-              wlParentJournalRanking:n[5],
-              wlOnlineCompanionRanking:n[6],
-              contactEmail:n[7],
-              submissionMethod:n[8],
-              url:n[9]
-            };
-            return myObject;
-        });
-        myData.splice(0,1); //remove the first row, which contains the original column headers
-        return myData;
-      }
-    },
-    'initComplete' : function (settings) {
-      interface();
-    }
-
-
+			},
+			'data':myData,
+			'initComplete' : function (settings) {
+				interface();
+			}
 		});
 		//end of var table
+	} 
+	// end of main function
 
-
+	main(key);
 
 });
 //end of document ready
